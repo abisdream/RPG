@@ -20,6 +20,9 @@ protected:
 
     int Level=1;//·¹º§
 
+    int Exp = 0;
+    int MaxExp = 100;
+
 
 public:
     Player(std::string _id, int _HP,int _MP,int _Power,int _Defence);
@@ -36,6 +39,9 @@ public:
     int GetDefence() const;
     int GetCurrentHP() const;
     int GetCurrentMP() const;
+    int GetLevel() const;
+    int GetExp() const;
+    int GetMaxExp() const;
 
     void SetHP(int _HP);
     void SetMP(int _MP);
@@ -43,6 +49,8 @@ public:
     void SetDefence(int _Defence);
     void SetCurrentHP(int _CurrentHP);
     void SetCurrentMP(int _CurrentMP);
+    void SetExp(int _Exp);
+    void SetLevel(int _Level);
 
     virtual void Attack() = 0;
 

@@ -78,6 +78,21 @@ int Player::GetCurrentMP() const
 	return CurrentMP;
 }
 
+int Player::GetLevel() const
+{
+	return Level;
+}
+
+int Player::GetExp() const
+{
+	return Exp;
+}
+
+int Player::GetMaxExp() const
+{
+	return MaxExp;
+}
+
 
 void Player::SetHP(int _HP)
 {
@@ -124,6 +139,11 @@ void Player::SetCurrentMP(int _CurrentMP)
 	{
 		CurrentMP = 0;
 	}
+}
+
+void Player::SetExp(int _Exp)
+{
+	Exp = _Exp;
 }
 
 /*void Player::Attack(Monster* monster)

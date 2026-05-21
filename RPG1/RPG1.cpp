@@ -17,7 +17,7 @@
 
 void Battle(Player* player, Monster& monster, std::vector<Item>& inventory);
 
-void setpotion(int count, int* p_HpPotion, int* p_MpPotion);
+void setpotion(int count, int* p_HpPotion, int* p_MpPotion); //매개변수 선언
 
 int main(void)
 {
@@ -72,7 +72,7 @@ int main(void)
 
     workshop.AddRecipe(staminaPotion);
 
-    setpotion(5, &HpPotion, &MpPotion);
+    setpotion(5, &HpPotion, &MpPotion); //변수의 주소로 넘겨 원본 값 변경 사용안할경우 복사된 값만 바뀌고 원본 HP포션 값은 바뀌지 않는다
 
 
     std::cout << "===========================================\n";
@@ -459,6 +459,10 @@ void Battle(Player* player, Monster& monster, std::vector<Item>& inventory)
             std::cout << " -> " << monster.GetdropItemName() << "획득\n";
             std::cout << " -> " << "인벤토리에 저장되었습니다.\n";
 
+            player->SetExp(player->GetExp() + 30);
+            std::cout << "-> 경험치 +30 획득! "<< "(현재 경험치: "<< player->GetExp()<<" / "<<player->GetMaxExp()<<" )\n";
+
+
             inventory.push_back(monster.DropItem());
 
 
@@ -475,7 +479,7 @@ void Battle(Player* player, Monster& monster, std::vector<Item>& inventory)
     }
 }
 
-void setpotion(int count, int* p_HpPotion, int* p_MpPotion)
+void setpotion(int count, int* p_HpPotion, int* p_MpPotion) //매개변수 설정
 {
     *p_HpPotion = count;
     *p_MpPotion = count;
